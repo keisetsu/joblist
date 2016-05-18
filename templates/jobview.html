@@ -1,0 +1,33 @@
+<html>
+  <head>
+      <title>Job results for {{ date }}</title>
+  </head>
+  <body>
+      <h1>Results for {{date}}</h1>
+      <ul>
+          {% for posted_date in jobs|sort %}
+          <li>{{ posted_date }}
+              {% for entry in jobs[posted_date] %}
+              <ul>
+                  <li><a href="{{ entry['link'] }}">
+                      {% if entry['seen'] %}
+                      <del>
+                      {% endif %}
+                          {{ entry['title'] }}
+                      {% if entry['seen'] %}
+                      </del>
+                      {% endif %}
+                  </a>
+                      <ul>
+                          <li>{{ entry['date'] }}</li>
+                          <li>{{ entry['source'] }}</li>
+                          <li>{{ entry['location'] }}</li>
+                      </ul>
+                  </li>
+              </ul>
+              {% endfor %}
+          </li>
+          {% endfor %}
+      </ul>
+  </body>
+</html>
