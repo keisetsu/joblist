@@ -17,7 +17,7 @@ class WorksJobList(JobList):
 
     page_size = 250
     base_url = ('https://www.kansasworks.com/ada/r/search/jobs?'
-                'date_posted=1+week&per_page={page_size}'
+                'date_posted=1+week&per_page={page_size}&keywords={keywords}'
                 '&location={location}&radius={radius}'
     )
     def collect_results(self, keywords, location, radius, max_results=5000, oldest=None):

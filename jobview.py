@@ -19,7 +19,7 @@ class JobView():
             item_id = item['id']
             item['seen'] = item_id in self.seen
             if item['seen']:
-                print('Seen', item_id, item['title'])
+#                print('Seen', item_id, item['title'])
                 if not include_seen:
                     continue
             date_key = item['date'].date()
